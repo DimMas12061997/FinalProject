@@ -1,127 +1,54 @@
 package services.impl;
 
+import constants.ServiceConstants;
 import dao.IUserDao;
-import dao.impl.UserDao;
 import entities.User;
 import exceptions.DaoException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.service.spi.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import services.AbstractService;
 import services.IUserService;
 
-import java.io.Serializable;
-import java.util.List;
+import javax.transaction.Transactional;
 
+@Service
+@Transactional
 public class UserService extends AbstractService<User> implements IUserService {
-    private IUserDao userDao = new UserDao(User.class);
+
+    private IUserDao userDao;
+    private static Logger logger = LoggerFactory.getLogger(UserService.class);
+
+    @Autowired
+    public UserService(IUserDao userDao) {
+        super(userDao);
+        this.userDao = userDao;
+    }
 
     @Override
+    @Transactional
     public User getByLogin(String login) {
-        User user;
-        Session session = hibernateUtil.getSession();
-        Transaction transaction = null;
+        User user = null;
         try {
-            transaction = session.beginTransaction();
             user = userDao.getByLogin(login);
-            transaction.commit();
-            System.out.println(TRANSACTION_SUCCEEDED);
-        }
-        catch (DaoException e) {
-            transaction.rollback();
-            throw new ServiceException(TRANSACTION_FAILED + e);
+            logger.info(ServiceConstants.TRANSACTION_SUCCEEDED);
+        } catch (DaoException e) {
+            logger.error(ServiceConstants.TRANSACTION_FAILED, e);
         }
         return user;
     }
 
     @Override
+    @Transactional
     public boolean isAuthorized(String login, String password) {
-        return false;
-    }
-
-
-    @Override
-    public Serializable save(User entity) throws ServiceException {
-        Serializable id;
-        Session session = hibernateUtil.getSession();
-        Transaction transaction = null;
+        boolean isAuthorized = false;
         try {
-            transaction = session.beginTransaction();
-            id = userDao.save(entity);
-            transaction.commit(); System.out.println(TRANSACTION_SUCCEEDED);
+            isAuthorized = userDao.isAuthorized(login, password);
+            logger.info(ServiceConstants.TRANSACTION_SUCCEEDED);
+        } catch (DaoException e) {
+            logger.error(ServiceConstants.TRANSACTION_FAILED, e);
         }
-        catch (DaoException e) {
-            transaction.rollback();
-            throw new ServiceException(TRANSACTION_FAILED + e);
-        }
-        return id;
-    }
-
-    @Override
-    public List<User> getAll() {
-        List<User> users;
-        Session session = hibernateUtil.getSession();
-        Transaction transaction = null;
-        try {
-            transaction = session.beginTransaction();
-            users = userDao.getAll();
-            transaction.commit();
-            System.out.println(TRANSACTION_SUCCEEDED);
-        }
-        catch (DaoException e) {
-            transaction.rollback();
-            throw new ServiceException(TRANSACTION_FAILED + e);
-        }
-        return users;
-    }
-
-    @Override
-    public User getById(int id) {
-        User user;
-        Session session = hibernateUtil.getSession();
-        Transaction transaction = null;
-        try {
-            transaction = session.beginTransaction();
-            user = userDao.getById(id);
-            transaction.commit();
-            System.out.println(TRANSACTION_SUCCEEDED);
-        }
-        catch (DaoException e) {
-            transaction.rollback();
-            throw new ServiceException(TRANSACTION_FAILED + e);
-        }
-        return user;
-    }
-
-    @Override
-    public void update(User entity) {
-        Session session = hibernateUtil.getSession();
-        Transaction transaction = null;
-        try {
-            transaction = session.beginTransaction();
-            userDao.update(entity);
-            transaction.commit();
-            System.out.println(TRANSACTION_SUCCEEDED);
-        }
-        catch (DaoException e) {
-            transaction.rollback();
-            throw new ServiceException(TRANSACTION_FAILED + e);
-        }
-    }
-
-    @Override
-    public void delete(int id) {
-        Session session = hibernateUtil.getSession();
-        Transaction transaction = null;
-        try {
-            transaction = session.beginTransaction();
-            userDao.delete(id);
-            transaction.commit();
-            System.out.println(TRANSACTION_SUCCEEDED);
-        }
-        catch (DaoException e) {
-            transaction.rollback();
-            throw new ServiceException(TRANSACTION_FAILED + e);
-        }
+        return isAuthorized;
     }
 }

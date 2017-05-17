@@ -1,58 +1,72 @@
 package dao;
 
+import constants.DaoConstants;
 import entities.Bean;
 import exceptions.DaoException;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import utils.HibernateUtil;
+import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import java.io.Serializable;
 import java.util.List;
 
 
 public abstract class BaseDao<T extends Bean> implements IBaseDao<T> {
+    private static Logger logger = LoggerFactory.getLogger(BaseDao.class);
+    private Class persistentClass;
 
-    protected HibernateUtil hibernateUtil;
-    private Class<T> persistentClass;
+    @Autowired
+    private SessionFactory sessionFactory;
+
+    protected BaseDao(Class persistentClass, SessionFactory sessionFactory){
+        this.persistentClass = persistentClass;
+        this.sessionFactory = sessionFactory;
+    }
+
+    protected Session getCurrentSession(){
+        return sessionFactory.getCurrentSession();
+    }
 
     @Override
     public List<T> getAll() {
-        List<T> results;
+        List<T> results = null;
         try {
-            Session session = hibernateUtil.getSession();
+            Session session = getCurrentSession();
             Criteria criteria = session.createCriteria(persistentClass);
             results = criteria.list();
 
         } catch (Exception e) {
-            throw new DaoException("Error was thrown in DAO");
+            logger.error(DaoConstants.ERROR_DAO + e);
         }
         return results;
     }
 
 
     @Override
-    public Serializable save(T entity) throws DaoException{
-        Serializable id;
+    public int save(T entity) throws DaoException{
+        int id = 0;
         try {
-            Session session = hibernateUtil.getSession();
-            session.saveOrUpdate(entity);
-            id = session.getIdentifier(entity);
+            Session session = getCurrentSession();
+            session.save(entity);
+            id = (int) session.getIdentifier(entity);
         }
         catch(HibernateException e) {
-            throw new DaoException("Error was thrown in DAO");
+            logger.error(DaoConstants.ERROR_DAO + e);
         }
         return id;
     }
 
     @Override
     public T getById(int id) {
-        T entity;
+        T entity = null;
         try {
-            Session session = hibernateUtil.getSession();
+            Session session = getCurrentSession();
             entity = (T) session.get(persistentClass, id);
         } catch (HibernateException e) {
-            throw new DaoException("Error was thrown in DAO");
+            logger.error(DaoConstants.ERROR_DAO + e);
         }
         return entity;
     }
@@ -60,27 +74,22 @@ public abstract class BaseDao<T extends Bean> implements IBaseDao<T> {
     @Override
     public void update(T entity) {
         try {
-            Session session = hibernateUtil.getSession();
+            Session session = getCurrentSession();
             session.update(entity);
         } catch (HibernateException e) {
-            throw new DaoException("Error was thrown in DAO");
+            logger.error(DaoConstants.ERROR_DAO + e);
         }
     }
 
     @Override
     public void delete(int id) {
         try {
-            Session session = hibernateUtil.getSession();
+            Session session = getCurrentSession();
             T entity = (T) session.get(persistentClass, id);
             session.delete(entity);
         } catch (HibernateException e) {
-            throw new DaoException("Error was thrown in DAO");
+            logger.error(DaoConstants.ERROR_DAO + e);
         }
     }
 
-
-    public BaseDao(Class<T> persistentClass) {
-        this.persistentClass = persistentClass;
-        hibernateUtil = HibernateUtil.getInstance();
-    }
 }

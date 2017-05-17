@@ -30,7 +30,7 @@ public class User extends Bean {
                 '}';
     }
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(nullable = false, name = "role_id")
     public Role getRole() {
         return role;
@@ -40,7 +40,7 @@ public class User extends Bean {
         this.role = role;
     }
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(nullable = false, name = "shop_id")
     public OnlineShop getShop() {
         return shop;
@@ -68,7 +68,7 @@ public class User extends Bean {
         this.lastName = lastName;
     }
 
-    @Column(nullable = false, unique = true,name = ("login"))
+    @Column(nullable = false, unique = true, name = ("login"))
     public String getLogin() {
         return login;
     }
@@ -77,7 +77,7 @@ public class User extends Bean {
         this.login = login;
     }
 
-    @Column( nullable = false, name = ("password"))
+    @Column(nullable = false, name = ("password"))
     public String getPassword() {
         return password;
     }
@@ -86,7 +86,8 @@ public class User extends Bean {
         this.password = password;
     }
 
-    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", name = ("created_date"))
+        @Column(name = ("created_date"))
+//    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", name = ("created_date"))
     public String getCreatedDate() {
         return createdDate;
     }

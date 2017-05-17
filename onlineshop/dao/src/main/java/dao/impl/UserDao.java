@@ -1,30 +1,38 @@
 package dao.impl;
 
+import constants.DaoConstants;
 import constants.Queries;
 import dao.BaseDao;
 import dao.IUserDao;
 import entities.User;
-import exceptions.DaoException;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class UserDao extends BaseDao<User> implements IUserDao {
+    private static Logger logger = LoggerFactory.getLogger(UserDao.class);
 
-    public UserDao(Class<User> persistentClass) {
-        super(persistentClass);
+    @Autowired
+    private UserDao(SessionFactory sessionFactory){
+        super(User.class, sessionFactory);
     }
 
     @Override
     public User getByLogin(String login) {
-        User user;
+        User user = null;
         try {
-            Session session = hibernateUtil.getSession();
+            Session session = getCurrentSession();
             Query query = session.createQuery(Queries.GET_BY_LOGIN);
             query.setParameter("login", login);
             user = (User) query.uniqueResult();
         } catch (HibernateException e) {
-            throw new DaoException("Unable to return user by login. Error was thrown in DAO");
+            logger.error(DaoConstants.ERROR_DAO + e);
         }
         return user;
     }
@@ -33,7 +41,7 @@ public class UserDao extends BaseDao<User> implements IUserDao {
     public boolean isAuthorized(String login, String password) {
         boolean isLogIn = false;
         try {
-            Session session = hibernateUtil.getSession();
+            Session session = getCurrentSession();
             Query query = session.createQuery(Queries.CHECK_AUTHORIZATION);
             query.setParameter("login", login);
             query.setParameter("password", password);
@@ -41,7 +49,7 @@ public class UserDao extends BaseDao<User> implements IUserDao {
                 isLogIn = true;
             }
         } catch (HibernateException e) {
-            throw new DaoException("Unable to check authorization. Error was thrown in DAO: ");
+            logger.error(DaoConstants.ERROR_DAO + e);
         }
         return isLogIn;
     }

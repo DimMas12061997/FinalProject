@@ -10,7 +10,7 @@ public class Role extends Bean {
     private RoleType role_name;
 
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "enum('CLIENT', 'ADMINISTRATOR')")
+    @Column(columnDefinition = "enum('CLIENT', 'ADMINISTRATOR','GUEST')")
     public RoleType getRole_name() {
         return role_name;
     }

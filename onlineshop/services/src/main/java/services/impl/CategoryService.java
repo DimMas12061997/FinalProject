@@ -1,32 +1,36 @@
-package services.impl;
-
-
-import entities.Category;
-import services.AbstractService;
-import services.ICategoryService;
-
-import java.io.Serializable;
-import java.util.List;
-
-public class CategoryService extends AbstractService<Category> implements ICategoryService {
-
-    public Serializable save(Category entity) {
-        return null;
-    }
-
-    public List<Category> getAll() {
-        return null;
-    }
-
-    public Category getById(int id) {
-        return null;
-    }
-
-    public void update(Category entity) {
-
-    }
-
-    public void delete(int id) {
-
-    }
-}
+//package services.impl;
+//
+//
+//import dao.IBaseDao;
+//import entities.Category;
+//import services.AbstractService;
+//import services.ICategoryService;
+//
+//import java.util.List;
+//
+//public class CategoryService extends AbstractService<Category> implements ICategoryService {
+//
+//    protected CategoryService(IBaseDao<Category> dao) {
+//        super(dao);
+//    }
+//
+//    public int save(Category entity) {
+//        return 0;
+//    }
+//
+//    public List<Category> getAll() {
+//        return null;
+//    }
+//
+//    public Category getById(int id) {
+//        return null;
+//    }
+//
+//    public void update(Category entity) {
+//
+//    }
+//
+//    public void delete(int id) {
+//
+//    }
+//}

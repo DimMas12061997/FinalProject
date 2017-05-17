@@ -42,8 +42,4 @@ public abstract class Bean {
         return id;
     }
 
-    @Override
-    public String toString() {
-        return "id=" + id;
-    }
 }

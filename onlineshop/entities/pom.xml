@@ -10,17 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>entities</artifactId>
-
     <name>entities</name>
 
     <dependencies>
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.2.10.Final</version>
         </dependency>
-
     </dependencies>
 
 </project>

@@ -2,5 +2,5 @@ package enums;
 
 
 public enum RoleType {
-    ADMINISTRATOR, USER, GUEST;
+    ADMINISTRATOR, CLIENT, GUEST;
 }
