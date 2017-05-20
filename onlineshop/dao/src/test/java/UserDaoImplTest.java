@@ -1,6 +1,6 @@
-import dao.impl.UserDao;
-import entities.User;
-import enums.RoleType;
+import by.masalsky.onlineshop.dao.impl.UserDao;
+import by.masalsky.onlineshop.entities.User;
+import by.masalsky.onlineshop.enums.RoleType;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import util.BeanBuilder;
+import by.masalsky.onlineshop.util.BeanBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +56,7 @@ public class UserDaoImplTest {
         expectedUser.setId( userId);
         delete();
     }
+
 
     @Test
     public void testGetAll() throws Exception {

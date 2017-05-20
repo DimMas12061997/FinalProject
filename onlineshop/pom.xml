@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <groupId>by.training.nc.dev3.onlineshop</groupId>
     <artifactId>onlineshop</artifactId>
     <packaging>pom</packaging>
@@ -20,41 +20,38 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <pool.version>2.1.1</pool.version>
         <hibernate.version>4.3.8.Final</hibernate.version>
-        <aspectj.version>1.8.4</aspectj.version>
-        <cglib.version>3.2.0</cglib.version>
-        <slf4j.version>1.8.0-alpha2</slf4j.version>
-        <jstl.version>1.2</jstl.version>
-        <servlet.api.version>3.1.0</servlet.api.version>
-        <!--<hibernate.version>5.2.10.Final</hibernate.version>-->
+        <slf4j.version>1.7.21</slf4j.version>
+        <logback.version>1.1.7</logback.version>
         <junit.version>4.12</junit.version>
         <mysql.version>5.1.36</mysql.version>
         <spring.version>4.2.4.RELEASE</spring.version>
         <spring.boot.version>1.5.3.RELEASE</spring.boot.version>
-        <!--<log4j.version>1.2.17</log4j.version>-->
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!--<dependency>-->
-                <!--<groupId>org.slf4j</groupId>-->
-                <!--<artifactId>slf4j-api</artifactId>-->
-                <!--<version>${slf4j.version}</version>-->
-            <!--</dependency>-->
+            <!--Logger-->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
+                <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
-
-
-
             <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${servlet.api.version}</version>
-                <!--<scope>provided</scope>-->
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
             </dependency>
-
+            <!---->
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-entitymanager</artifactId>
@@ -81,41 +78,11 @@
                 <version>${spring.version}</version>
             </dependency>
 
-            <!-- JSTL -->
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>jstl</artifactId>
-                <version>${jstl.version}</version>
-            </dependency>
-            <!--Cglib-->
-            <dependency>
-                <groupId>cglib</groupId>
-                <artifactId>cglib</artifactId>
-                <version>${cglib.version}</version>
-            </dependency>
-            <!--AspectJ-->
-            <dependency>
-                <groupId>org.aspectj</groupId>
-                <artifactId>aspectjweaver</artifactId>
-                <version>${aspectj.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.aspectj</groupId>
-                <artifactId>aspectjrt</artifactId>
-                <version>${aspectj.version}</version>
-            </dependency>
-            <!-- JUnit -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-ehcache</artifactId>
-                <version>${hibernate.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -125,11 +92,6 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-orm</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-aop</artifactId>
                 <version>${spring.version}</version>
             </dependency>
             <dependency>

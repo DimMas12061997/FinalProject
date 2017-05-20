@@ -1,60 +1,180 @@
-2017-05-17 18:39:34 INFO  DefaultTestContextBootstrapper:259 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-2017-05-17 18:39:34 INFO  DefaultTestContextBootstrapper:207 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
-2017-05-17 18:39:34 INFO  DefaultTestContextBootstrapper:185 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4678c730, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6767c1fc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@29ee9faa, org.springframework.test.context.transaction.TransactionalTestExecutionListener@c038203, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@cc285f4]
-2017-05-17 18:39:35 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-services-context.xml]
-2017-05-17 18:39:36 INFO  GenericApplicationContext:578 - Refreshing org.springframework.context.support.GenericApplicationContext@73846619: startup date [Wed May 17 18:39:36 MSK 2017]; root of context hierarchy
-2017-05-17 18:39:37 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2017-05-17 18:39:37 INFO  Version:54 - HHH000412: Hibernate Core {4.3.8.Final}
-2017-05-17 18:39:37 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2017-05-17 18:39:37 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2017-05-17 18:39:38 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2017-05-17 18:39:39 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
-2017-05-17 18:39:39 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2017-05-17 18:39:39 INFO  Version:27 - HV000001: Hibernate Validator 4.3.1.Final
-2017-05-17 18:39:41 INFO  SchemaValidator:157 - HHH000229: Running schema validator
-2017-05-17 18:39:41 INFO  SchemaValidator:165 - HHH000102: Fetching database metadata
-2017-05-17 18:39:41 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.black_list
-2017-05-17 18:39:41 INFO  TableMetadata:67 - HHH000037: Columns: [user_id, id, created_date]
-2017-05-17 18:39:41 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.category
-2017-05-17 18:39:41 INFO  TableMetadata:67 - HHH000037: Columns: [category_shop, id]
-2017-05-17 18:39:41 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.goods
-2017-05-17 18:39:41 INFO  TableMetadata:67 - HHH000037: Columns: [goods_name, shop_id, category_id, description, producer, id, created_date, number_goods, unit_price]
-2017-05-17 18:39:41 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.order_goods
-2017-05-17 18:39:41 INFO  TableMetadata:67 - HHH000037: Columns: [id_order, id_goods]
-2017-05-17 18:39:41 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.orders
-2017-05-17 18:39:41 INFO  TableMetadata:67 - HHH000037: Columns: [order_cost, user_id, id, created_date, status]
-2017-05-17 18:39:41 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.role
-2017-05-17 18:39:41 INFO  TableMetadata:67 - HHH000037: Columns: [role_name, id]
-2017-05-17 18:39:41 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.shop
-2017-05-17 18:39:41 INFO  TableMetadata:67 - HHH000037: Columns: [name_shop, description, id, profit]
-2017-05-17 18:39:41 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.user
-2017-05-17 18:39:41 INFO  TableMetadata:67 - HHH000037: Columns: [shop_id, password, role_id, last_name, id, created_date, login, first_name]
-2017-05-17 18:39:41 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.user_profil
-2017-05-17 18:39:41 INFO  TableMetadata:67 - HHH000037: Columns: [address, credit_card_number, user_id, id, email, budget]
-2017-05-17 18:39:41 INFO  HibernateTransactionManager:360 - Using DataSource [org.apache.commons.dbcp2.BasicDataSource@30b9eadd] of Hibernate SessionFactory for HibernateTransactionManager
-2017-05-17 18:39:42 INFO  AbstractService:29 - Transaction succeeded
-2017-05-17 18:39:42 INFO  AbstractService:82 - Transaction succeeded
-2017-05-17 18:39:43 INFO  AbstractService:58 - Transaction succeeded
-2017-05-17 18:39:43 INFO  AbstractService:29 - Transaction succeeded
-2017-05-17 18:39:43 INFO  AbstractService:58 - Transaction succeeded
-2017-05-17 18:39:43 INFO  AbstractService:82 - Transaction succeeded
-2017-05-17 18:39:43 INFO  AbstractService:29 - Transaction succeeded
-2017-05-17 18:39:43 INFO  AbstractService:58 - Transaction succeeded
-2017-05-17 18:39:43 INFO  AbstractService:82 - Transaction succeeded
-2017-05-17 18:39:43 INFO  AbstractService:29 - Transaction succeeded
-2017-05-17 18:39:43 INFO  UserService:35 - Transaction succeeded
-2017-05-17 18:39:43 INFO  AbstractService:82 - Transaction succeeded
-2017-05-17 18:39:43 INFO  AbstractService:29 - Transaction succeeded
-2017-05-17 18:39:44 INFO  AbstractService:82 - Transaction succeeded
-2017-05-17 18:39:44 INFO  AbstractService:58 - Transaction succeeded
-2017-05-17 18:39:44 INFO  AbstractService:29 - Transaction succeeded
-2017-05-17 18:39:44 INFO  AbstractService:45 - Transaction succeeded
-2017-05-17 18:39:44 INFO  AbstractService:82 - Transaction succeeded
-2017-05-17 18:39:44 INFO  AbstractService:29 - Transaction succeeded
-2017-05-17 18:39:44 INFO  UserService:48 - Transaction succeeded
-2017-05-17 18:39:44 INFO  AbstractService:82 - Transaction succeeded
-2017-05-17 18:39:44 INFO  AbstractService:29 - Transaction succeeded
-2017-05-17 18:39:44 INFO  AbstractService:71 - Transaction succeeded
-2017-05-17 18:39:44 INFO  AbstractService:58 - Transaction succeeded
-2017-05-17 18:39:44 INFO  AbstractService:82 - Transaction succeeded
-2017-05-17 18:39:44 INFO  GenericApplicationContext:960 - Closing org.springframework.context.support.GenericApplicationContext@73846619: startup date [Wed May 17 18:39:36 MSK 2017]; root of context hierarchy
+2017-05-20 21:52:28 INFO  DefaultTestContextBootstrapper:259 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-05-20 21:52:28 INFO  DefaultTestContextBootstrapper:207 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+2017-05-20 21:52:28 INFO  DefaultTestContextBootstrapper:185 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6e1567f1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5cb9f472, org.springframework.test.context.support.DirtiesContextTestExecutionListener@cb644e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@13805618, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@56ef9176]
+2017-05-20 21:52:28 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-services-context.xml]
+2017-05-20 21:52:29 INFO  DefaultListableBeanFactory:839 - Overriding bean definition for bean 'userService' with a different definition: replacing [Generic bean: class [by.masalsky.onlineshop.services.impl.UserService]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [C:\Users\ƒмитрий\Desktop\NetCracker\курсы\onlineshop\services\target\classes\by\masalsky\onlineshop\services\impl\UserService.class]] with [Generic bean: class [by.masalsky.onlineshop.services.impl.UserService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [test-services-context.xml]]
+2017-05-20 21:52:29 INFO  GenericApplicationContext:578 - Refreshing org.springframework.context.support.GenericApplicationContext@2b9627bc: startup date [Sat May 20 21:52:29 MSK 2017]; root of context hierarchy
+2017-05-20 21:52:30 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2017-05-20 21:52:30 INFO  Version:54 - HHH000412: Hibernate Core {4.3.8.Final}
+2017-05-20 21:52:30 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2017-05-20 21:52:30 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2017-05-20 21:52:32 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-05-20 21:52:33 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2017-05-20 21:52:33 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2017-05-20 21:52:34 INFO  SchemaValidator:157 - HHH000229: Running schema validator
+2017-05-20 21:52:34 INFO  SchemaValidator:165 - HHH000102: Fetching database metadata
+2017-05-20 21:52:34 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.black_list
+2017-05-20 21:52:34 INFO  TableMetadata:67 - HHH000037: Columns: [user_id, id, created_date]
+2017-05-20 21:52:34 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.category
+2017-05-20 21:52:34 INFO  TableMetadata:67 - HHH000037: Columns: [category_shop, id]
+2017-05-20 21:52:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.goods
+2017-05-20 21:52:35 INFO  TableMetadata:67 - HHH000037: Columns: [goods_name, shop_id, category_id, description, producer, id, created_date, number_goods, unit_price]
+2017-05-20 21:52:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.order_goods
+2017-05-20 21:52:35 INFO  TableMetadata:67 - HHH000037: Columns: [id_order, id_goods]
+2017-05-20 21:52:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.orders
+2017-05-20 21:52:35 INFO  TableMetadata:67 - HHH000037: Columns: [order_cost, user_id, id, created_date, status]
+2017-05-20 21:52:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.role
+2017-05-20 21:52:35 INFO  TableMetadata:67 - HHH000037: Columns: [role_name, id]
+2017-05-20 21:52:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.shop
+2017-05-20 21:52:35 INFO  TableMetadata:67 - HHH000037: Columns: [name_shop, description, id, profit]
+2017-05-20 21:52:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.user
+2017-05-20 21:52:35 INFO  TableMetadata:67 - HHH000037: Columns: [shop_id, password, role_id, last_name, id, created_date, login, first_name]
+2017-05-20 21:52:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.user_profil
+2017-05-20 21:52:35 INFO  TableMetadata:67 - HHH000037: Columns: [address, credit_card_number, user_id, id, email, budget]
+2017-05-20 21:52:35 INFO  HibernateTransactionManager:360 - Using DataSource [org.apache.commons.dbcp2.BasicDataSource@85ec632] of Hibernate SessionFactory for HibernateTransactionManager
+2017-05-20 21:52:35 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:52:36 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:52:36 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 21:52:36 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:52:36 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 21:52:36 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:52:36 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:52:36 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 21:52:36 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:52:37 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:52:37 INFO  UserService:35 - Transaction succeeded
+2017-05-20 21:52:37 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:52:37 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:52:37 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:52:37 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 21:52:37 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:52:37 INFO  AbstractService:45 - Transaction succeeded
+2017-05-20 21:52:37 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:52:37 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:52:37 INFO  UserService:48 - Transaction succeeded
+2017-05-20 21:52:37 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:52:38 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:52:38 INFO  AbstractService:71 - Transaction succeeded
+2017-05-20 21:52:38 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 21:52:38 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:52:38 INFO  GenericApplicationContext:960 - Closing org.springframework.context.support.GenericApplicationContext@2b9627bc: startup date [Sat May 20 21:52:29 MSK 2017]; root of context hierarchy
+2017-05-20 21:55:47 INFO  DefaultTestContextBootstrapper:259 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-05-20 21:55:47 INFO  DefaultTestContextBootstrapper:207 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+2017-05-20 21:55:47 INFO  DefaultTestContextBootstrapper:185 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6e1567f1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5cb9f472, org.springframework.test.context.support.DirtiesContextTestExecutionListener@cb644e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@13805618, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@56ef9176]
+2017-05-20 21:55:48 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-services-context.xml]
+2017-05-20 21:55:48 INFO  DefaultListableBeanFactory:839 - Overriding bean definition for bean 'userService' with a different definition: replacing [Generic bean: class [by.masalsky.onlineshop.services.impl.UserService]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [C:\Users\ƒмитрий\Desktop\NetCracker\курсы\onlineshop\services\target\classes\by\masalsky\onlineshop\services\impl\UserService.class]] with [Generic bean: class [by.masalsky.onlineshop.services.impl.UserService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [test-services-context.xml]]
+2017-05-20 21:55:48 INFO  GenericApplicationContext:578 - Refreshing org.springframework.context.support.GenericApplicationContext@2b9627bc: startup date [Sat May 20 21:55:48 MSK 2017]; root of context hierarchy
+2017-05-20 21:55:50 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2017-05-20 21:55:50 INFO  Version:54 - HHH000412: Hibernate Core {4.3.8.Final}
+2017-05-20 21:55:50 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2017-05-20 21:55:50 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2017-05-20 21:55:51 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-05-20 21:55:52 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2017-05-20 21:55:52 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2017-05-20 21:55:53 INFO  SchemaValidator:157 - HHH000229: Running schema validator
+2017-05-20 21:55:53 INFO  SchemaValidator:165 - HHH000102: Fetching database metadata
+2017-05-20 21:55:54 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.black_list
+2017-05-20 21:55:54 INFO  TableMetadata:67 - HHH000037: Columns: [user_id, id, created_date]
+2017-05-20 21:55:54 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.category
+2017-05-20 21:55:54 INFO  TableMetadata:67 - HHH000037: Columns: [category_shop, id]
+2017-05-20 21:55:54 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.goods
+2017-05-20 21:55:54 INFO  TableMetadata:67 - HHH000037: Columns: [goods_name, shop_id, category_id, description, producer, id, created_date, number_goods, unit_price]
+2017-05-20 21:55:54 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.order_goods
+2017-05-20 21:55:54 INFO  TableMetadata:67 - HHH000037: Columns: [id_order, id_goods]
+2017-05-20 21:55:54 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.orders
+2017-05-20 21:55:54 INFO  TableMetadata:67 - HHH000037: Columns: [order_cost, user_id, id, created_date, status]
+2017-05-20 21:55:54 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.role
+2017-05-20 21:55:54 INFO  TableMetadata:67 - HHH000037: Columns: [role_name, id]
+2017-05-20 21:55:54 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.shop
+2017-05-20 21:55:54 INFO  TableMetadata:67 - HHH000037: Columns: [name_shop, description, id, profit]
+2017-05-20 21:55:54 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.user
+2017-05-20 21:55:54 INFO  TableMetadata:67 - HHH000037: Columns: [shop_id, password, role_id, last_name, id, created_date, login, first_name]
+2017-05-20 21:55:54 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.user_profil
+2017-05-20 21:55:54 INFO  TableMetadata:67 - HHH000037: Columns: [address, credit_card_number, user_id, id, email, budget]
+2017-05-20 21:55:54 INFO  HibernateTransactionManager:360 - Using DataSource [org.apache.commons.dbcp2.BasicDataSource@85ec632] of Hibernate SessionFactory for HibernateTransactionManager
+2017-05-20 21:55:55 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:55:55 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:55:55 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 21:55:55 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:55:55 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 21:55:55 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:55:55 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:55:55 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 21:55:55 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:55:55 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:55:56 INFO  UserService:35 - Transaction succeeded
+2017-05-20 21:55:56 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:55:56 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:55:56 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:55:56 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 21:55:56 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:55:56 INFO  AbstractService:45 - Transaction succeeded
+2017-05-20 21:55:56 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:55:56 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:55:56 INFO  UserService:48 - Transaction succeeded
+2017-05-20 21:55:56 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:55:56 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 21:55:56 INFO  AbstractService:71 - Transaction succeeded
+2017-05-20 21:55:56 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 21:55:56 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 21:55:56 INFO  GenericApplicationContext:960 - Closing org.springframework.context.support.GenericApplicationContext@2b9627bc: startup date [Sat May 20 21:55:48 MSK 2017]; root of context hierarchy
+2017-05-20 22:00:29 INFO  DefaultTestContextBootstrapper:259 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-05-20 22:00:29 INFO  DefaultTestContextBootstrapper:207 - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+2017-05-20 22:00:29 INFO  DefaultTestContextBootstrapper:185 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6e1567f1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5cb9f472, org.springframework.test.context.support.DirtiesContextTestExecutionListener@cb644e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@13805618, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@56ef9176]
+2017-05-20 22:00:30 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-services-context.xml]
+2017-05-20 22:00:30 INFO  DefaultListableBeanFactory:839 - Overriding bean definition for bean 'userService' with a different definition: replacing [Generic bean: class [by.masalsky.onlineshop.services.impl.UserService]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [C:\Users\ƒмитрий\Desktop\NetCracker\курсы\onlineshop\services\target\classes\by\masalsky\onlineshop\services\impl\UserService.class]] with [Generic bean: class [by.masalsky.onlineshop.services.impl.UserService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [test-services-context.xml]]
+2017-05-20 22:00:30 INFO  GenericApplicationContext:578 - Refreshing org.springframework.context.support.GenericApplicationContext@2b9627bc: startup date [Sat May 20 22:00:30 MSK 2017]; root of context hierarchy
+2017-05-20 22:00:31 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2017-05-20 22:00:31 INFO  Version:54 - HHH000412: Hibernate Core {4.3.8.Final}
+2017-05-20 22:00:31 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2017-05-20 22:00:31 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2017-05-20 22:00:33 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-05-20 22:00:34 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2017-05-20 22:00:34 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2017-05-20 22:00:35 INFO  SchemaValidator:157 - HHH000229: Running schema validator
+2017-05-20 22:00:35 INFO  SchemaValidator:165 - HHH000102: Fetching database metadata
+2017-05-20 22:00:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.black_list
+2017-05-20 22:00:35 INFO  TableMetadata:67 - HHH000037: Columns: [user_id, id, created_date]
+2017-05-20 22:00:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.category
+2017-05-20 22:00:35 INFO  TableMetadata:67 - HHH000037: Columns: [category_shop, id]
+2017-05-20 22:00:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.goods
+2017-05-20 22:00:35 INFO  TableMetadata:67 - HHH000037: Columns: [goods_name, shop_id, category_id, description, producer, id, created_date, number_goods, unit_price]
+2017-05-20 22:00:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.order_goods
+2017-05-20 22:00:35 INFO  TableMetadata:67 - HHH000037: Columns: [id_order, id_goods]
+2017-05-20 22:00:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.orders
+2017-05-20 22:00:35 INFO  TableMetadata:67 - HHH000037: Columns: [order_cost, user_id, id, created_date, status]
+2017-05-20 22:00:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.role
+2017-05-20 22:00:35 INFO  TableMetadata:67 - HHH000037: Columns: [role_name, id]
+2017-05-20 22:00:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.shop
+2017-05-20 22:00:35 INFO  TableMetadata:67 - HHH000037: Columns: [name_shop, description, id, profit]
+2017-05-20 22:00:35 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.user
+2017-05-20 22:00:35 INFO  TableMetadata:67 - HHH000037: Columns: [shop_id, password, role_id, last_name, id, created_date, login, first_name]
+2017-05-20 22:00:36 INFO  TableMetadata:66 - HHH000261: Table found: shop_hibernate.user_profil
+2017-05-20 22:00:36 INFO  TableMetadata:67 - HHH000037: Columns: [address, credit_card_number, user_id, id, email, budget]
+2017-05-20 22:00:36 INFO  HibernateTransactionManager:360 - Using DataSource [org.apache.commons.dbcp2.BasicDataSource@85ec632] of Hibernate SessionFactory for HibernateTransactionManager
+2017-05-20 22:00:36 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 22:00:36 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 22:00:37 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 22:00:37 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 22:00:37 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 22:00:37 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 22:00:37 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 22:00:37 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 22:00:37 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 22:00:37 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 22:00:38 INFO  UserService:35 - Transaction succeeded
+2017-05-20 22:00:38 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 22:00:38 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 22:00:38 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 22:00:38 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 22:00:38 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 22:00:38 INFO  AbstractService:45 - Transaction succeeded
+2017-05-20 22:00:38 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 22:00:38 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 22:00:38 INFO  UserService:48 - Transaction succeeded
+2017-05-20 22:00:38 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 22:00:38 INFO  AbstractService:29 - Transaction succeeded
+2017-05-20 22:00:38 INFO  AbstractService:71 - Transaction succeeded
+2017-05-20 22:00:38 INFO  AbstractService:58 - Transaction succeeded
+2017-05-20 22:00:38 INFO  AbstractService:82 - Transaction succeeded
+2017-05-20 22:00:38 INFO  GenericApplicationContext:960 - Closing org.springframework.context.support.GenericApplicationContext@2b9627bc: startup date [Sat May 20 22:00:30 MSK 2017]; root of context hierarchy
