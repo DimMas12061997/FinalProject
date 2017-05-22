@@ -15,7 +15,7 @@ import java.util.List;
 
 
 public abstract class BaseDao<T extends Bean> implements IBaseDao<T> {
-    private static Logger logger = LoggerFactory.getLogger(BaseDao.class);
+    private final static Logger logger = LoggerFactory.getLogger(BaseDao.class);
     private Class persistentClass;
 
     @Autowired

@@ -28,7 +28,7 @@ public class UserDaoImplTest {
 
     @Before
     public void buildEntity() throws Exception {
-        expectedUser = BeanBuilder.buildUser("дмитрий", "масальский", "dimas", "12061997", BeanBuilder.buildRole(RoleType.ADMINISTRATOR), BeanBuilder.buildShop("xx","qwe", 2000));
+        expectedUser = BeanBuilder.buildUser("test", "test", "test", "test", BeanBuilder.buildRole(RoleType.ADMINISTRATOR), BeanBuilder.buildShop("xx","qwe", 2000));
         save();
     }
 

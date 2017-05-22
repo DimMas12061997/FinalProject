@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class UserDao extends BaseDao<User> implements IUserDao {
-    private static Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final static Logger logger = LoggerFactory.getLogger(UserDao.class);
 
     @Autowired
     private UserDao(SessionFactory sessionFactory){

@@ -26,7 +26,7 @@ public class UserServiceTest {
 
     @Before
     public void buildEntity() throws Exception {
-        expectedUser = BeanBuilder.buildUser("дмитрий", "масальский", "dimas", "12061997", BeanBuilder.buildRole(RoleType.ADMINISTRATOR), BeanBuilder.buildShop("test", "test", 10));
+        expectedUser = BeanBuilder.buildUser("test", "test", "test", "test", BeanBuilder.buildRole(RoleType.ADMINISTRATOR), BeanBuilder.buildShop("test", "test", 10));
         save();
     }
 

@@ -19,5 +19,6 @@ by\masalsky\onlineshop\utils\HibernateUtil.class
 by\masalsky\onlineshop\dao\impl\OrderDao.class
 by\masalsky\onlineshop\dao\impl\RoleDao.class
 by\masalsky\onlineshop\constants\Queries.class
+by\masalsky\onlineshop\config\PersistenceConfiguration$1.class
 by\masalsky\onlineshop\dao\IOrderDao.class
 by\masalsky\onlineshop\dao\IShopDao.class

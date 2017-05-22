@@ -14,11 +14,10 @@ import by.masalsky.onlineshop.services.IUserService;
 import javax.transaction.Transactional;
 
 @Service
-@Transactional
 public class UserService extends AbstractService<User> implements IUserService {
 
     private IUserDao userDao;
-    private static Logger logger = LoggerFactory.getLogger(UserService.class);
+    private final static Logger logger = LoggerFactory.getLogger(UserService.class);
 
     @Autowired
     public UserService(IUserDao userDao) {

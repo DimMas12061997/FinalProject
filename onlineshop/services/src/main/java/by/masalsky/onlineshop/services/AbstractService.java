@@ -12,8 +12,9 @@ import org.slf4j.LoggerFactory;
 import javax.transaction.Transactional;
 import java.util.List;
 
+@Transactional
 public abstract class AbstractService<T extends Bean> implements IService<T> {
-    private static Logger logger = LoggerFactory.getLogger(AbstractService.class);
+    private final static Logger logger = LoggerFactory.getLogger(AbstractService.class);
     private IBaseDao<T> dao;
 
     protected AbstractService(IBaseDao<T> dao) {
@@ -21,7 +22,6 @@ public abstract class AbstractService<T extends Bean> implements IService<T> {
     }
 
     @Override
-    @Transactional
     public int save(T entity) throws ServiceException {
         int id = 0;
         try {
@@ -34,7 +34,6 @@ public abstract class AbstractService<T extends Bean> implements IService<T> {
     }
 
     @Override
-    @Transactional
     public List<T> getAll() {
         List<T> users = null;
         if (logger.isDebugEnabled()) {
@@ -50,7 +49,6 @@ public abstract class AbstractService<T extends Bean> implements IService<T> {
     }
 
     @Override
-    @Transactional
     public T getById(int id) {
         T user = null;
         try {
@@ -63,9 +61,7 @@ public abstract class AbstractService<T extends Bean> implements IService<T> {
     }
 
     @Override
-    @Transactional
     public void update(T entity) {
-        System.out.println(entity);
         try {
             dao.update(entity);
             logger.info(ServiceConstants.TRANSACTION_SUCCEEDED);
@@ -75,7 +71,6 @@ public abstract class AbstractService<T extends Bean> implements IService<T> {
     }
 
     @Override
-    @Transactional
     public void delete(int id) {
         try {
             dao.delete(id);
