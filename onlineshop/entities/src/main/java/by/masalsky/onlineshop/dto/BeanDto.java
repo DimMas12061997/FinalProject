@@ -7,10 +7,6 @@ public abstract class BeanDto {
     public BeanDto() {
     }
 
-    public BeanDto(Integer id) {
-        this.id = id;
-    }
-
     public Integer getId() {
         return id;
     }

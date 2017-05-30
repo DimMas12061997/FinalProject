@@ -1,8 +1,7 @@
 package by.masalsky.onlineshop.dao.impl;
 
 
-import by.masalsky.onlineshop.dao.BaseDao;
-import by.masalsky.onlineshop.dao.IRoleDao;
+import by.masalsky.onlineshop.dao.interfaces.IRoleDao;
 import by.masalsky.onlineshop.entities.Role;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

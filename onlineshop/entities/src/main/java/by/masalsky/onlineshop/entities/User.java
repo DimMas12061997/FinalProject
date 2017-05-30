@@ -11,10 +11,22 @@ public class User extends Bean {
     private String password;
     private Role role;
     private OnlineShop shop;
-    private String createdDate;
+//    private String createdDate;
 
     public User() {
     }
+
+
+    public User(User user) {
+        super(user.getId());
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
+        this.login = user.getLogin();
+        this.password = user.getPassword();
+        this.role = user.getRole();
+        this.shop = user.getShop();
+    }
+
 
     @Override
     public String toString() {
@@ -25,12 +37,11 @@ public class User extends Bean {
                 ", password='" + password + '\'' +
                 ", role=" + role +
                 ", shop=" + shop +
-                ", createdDate='" + createdDate + '\'' +
                 '}';
     }
 
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(nullable = false, name = "role_id")
+    @ManyToOne()
+    @JoinColumn(name = "role_id")
     public Role getRole() {
         return role;
     }
@@ -39,8 +50,8 @@ public class User extends Bean {
         this.role = role;
     }
 
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(nullable = false, name = "shop_id")
+    @ManyToOne()
+    @JoinColumn(name = "shop_id")
     public OnlineShop getShop() {
         return shop;
     }
@@ -85,15 +96,16 @@ public class User extends Bean {
         this.password = password;
     }
 
-        @Column(name = ("created_date"))
+//        @Column(name = ("created_date"))
 //    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", name = ("created_date"))
-    public String getCreatedDate() {
-        return createdDate;
-    }
+//    public String getCreatedDate() {
+//        return createdDate;
+//    }
+//
+//    public void setCreatedDate(String createdDate) {
+//        this.createdDate = createdDate;
+//    }
 
-    public void setCreatedDate(String createdDate) {
-        this.createdDate = createdDate;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -108,9 +120,7 @@ public class User extends Bean {
         if (login != null ? !login.equals(user.login) : user.login != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (role != null ? !role.equals(user.role) : user.role != null) return false;
-        if (shop != null ? !shop.equals(user.shop) : user.shop != null) return false;
-        return createdDate != null ? createdDate.equals(user.createdDate) : user.createdDate == null;
-
+        return shop != null ? shop.equals(user.shop) : user.shop == null;
     }
 
     @Override
@@ -122,7 +132,6 @@ public class User extends Bean {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (shop != null ? shop.hashCode() : 0);
-        result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
         return result;
     }
 }

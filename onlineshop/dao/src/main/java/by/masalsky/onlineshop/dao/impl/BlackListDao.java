@@ -1,8 +1,7 @@
 package by.masalsky.onlineshop.dao.impl;
 
 
-import by.masalsky.onlineshop.dao.BaseDao;
-import by.masalsky.onlineshop.dao.IBlackListDao;
+import by.masalsky.onlineshop.dao.interfaces.IBlackListDao;
 import by.masalsky.onlineshop.entities.BlackList;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;

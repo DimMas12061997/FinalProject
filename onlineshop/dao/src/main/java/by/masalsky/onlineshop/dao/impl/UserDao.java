@@ -1,9 +1,8 @@
 package by.masalsky.onlineshop.dao.impl;
 
-import by.masalsky.onlineshop.dao.BaseDao;
 import by.masalsky.onlineshop.constants.DaoConstants;
 import by.masalsky.onlineshop.constants.Queries;
-import by.masalsky.onlineshop.dao.IUserDao;
+import by.masalsky.onlineshop.dao.interfaces.IUserDao;
 import by.masalsky.onlineshop.entities.User;
 import by.masalsky.onlineshop.exceptions.DaoException;
 import org.hibernate.HibernateException;

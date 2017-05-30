@@ -15,7 +15,7 @@ public class OnlineShop extends Bean {
     public OnlineShop() {
     }
 
-    @Column(nullable = false, name = ("name_shop"))
+    @Column(name = ("name_shop"))
     public String getName() {
         return name;
     }
@@ -24,7 +24,7 @@ public class OnlineShop extends Bean {
         this.name = name;
     }
 
-    @Column(nullable = false, name = ("profit"), precision = 2)
+    @Column(name = ("profit"), precision = 2)
     public double getProfit() {
         return profit;
     }
@@ -33,7 +33,7 @@ public class OnlineShop extends Bean {
         this.profit = profit;
     }
 
-    @Column(nullable = false, name = ("description"))
+    @Column(name = ("description"))
     public String getDescription() {
         return description;
     }

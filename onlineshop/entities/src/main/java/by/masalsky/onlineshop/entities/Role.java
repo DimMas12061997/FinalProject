@@ -18,4 +18,11 @@ public class Role extends Bean {
     public void setRole_name(RoleType role_name) {
         this.role_name = role_name;
     }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "role_name=" + role_name +
+                '}';
+    }
 }

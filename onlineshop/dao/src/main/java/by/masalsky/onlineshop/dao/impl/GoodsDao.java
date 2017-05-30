@@ -2,9 +2,8 @@ package by.masalsky.onlineshop.dao.impl;
 
 
 import by.masalsky.onlineshop.constants.DaoConstants;
-import by.masalsky.onlineshop.dao.BaseDao;
 import by.masalsky.onlineshop.exceptions.DaoException;
-import by.masalsky.onlineshop.dao.IGoodsDao;
+import by.masalsky.onlineshop.dao.interfaces.IGoodsDao;
 import by.masalsky.onlineshop.entities.Goods;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

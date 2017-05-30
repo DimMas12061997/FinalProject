@@ -5,28 +5,11 @@ public class UserDto extends BeanDto {
     private String lastName;
     private String login;
     private String password;
-    private RoleDto role;
-    private OnlineShopDto shop;
     private String createdDate;
 
     public UserDto() {
     }
 
-    public RoleDto getRole() {
-        return role;
-    }
-
-    public void setRole(RoleDto role) {
-        this.role = role;
-    }
-
-    public OnlineShopDto getShop() {
-        return shop;
-    }
-
-    public void setShop(OnlineShopDto shop) {
-        this.shop = shop;
-    }
 
     public String getFirstName() {
         return firstName;
