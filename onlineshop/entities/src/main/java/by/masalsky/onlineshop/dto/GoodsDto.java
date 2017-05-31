@@ -6,32 +6,14 @@ public class GoodsDto extends BeanDto {
     private double unitPrice;
     private String producer;
     private String description;
-    private String createdDate;
-    private OnlineShopDto shopId;
-    private CategoryDto categoryId;
+    private int category;
 
-    public String getCreatedDate() {
-        return createdDate;
+    public int getCategory() {
+        return category;
     }
 
-    public void setCreatedDate(String createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public OnlineShopDto getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(OnlineShopDto shopId) {
-        this.shopId = shopId;
-    }
-
-    public CategoryDto getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(CategoryDto categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(int category) {
+        this.category = category;
     }
 
     public String getProducer() {
@@ -74,5 +56,15 @@ public class GoodsDto extends BeanDto {
         this.unitPrice = unitPrice;
     }
 
-
+    @Override
+    public String toString() {
+        return "GoodsDto{" +
+                "name='" + name + '\'' +
+                ", number=" + number +
+                ", unitPrice=" + unitPrice +
+                ", producer='" + producer + '\'' +
+                ", description='" + description + '\'' +
+                ", category=" + category +
+                '}';
+    }
 }

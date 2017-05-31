@@ -1,6 +1,6 @@
 package by.masalsky.onlineshop.security;
 
-import by.masalsky.onlineshop.entities.User;
+import by.masalsky.onlineshop.dto.UserDto;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,17 +10,17 @@ import java.util.Collection;
 import java.util.List;
 
 
-public class CustomUserDetails extends User implements UserDetails {
+public class CustomUserDetails extends UserDto implements UserDetails {
     private final String ROLE_PREFIX = "ROLE_";
 
-    public CustomUserDetails(User user) {
+    public CustomUserDetails(UserDto user) {
         super(user);
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> list = new ArrayList<>();
-        list.add(new SimpleGrantedAuthority(ROLE_PREFIX + super.getRole().getRole_name()));
+        list.add(new SimpleGrantedAuthority(ROLE_PREFIX + super.getRole_name()));
         return list;
     }
 

@@ -18,17 +18,4 @@ public class BlackListDao extends BaseDao<BlackList> implements IBlackListDao {
         super(BlackList.class, sessionFactory);
     }
 
-//    @Override
-//    public void removeByUserId(int id) {
-//        try {
-//            Session session = getCurrentSession();
-//            Query query = session.createQuery(DaoConstants.HQL_DELETE_BY_USER_ID);
-//            query.setParameter(DaoConstants.PARAMETER_USER_ID, id);
-//            query.executeUpdate();
-//        }
-//        catch(HibernateException e){
-//            logger.error(DaoConstants.ERROR_DAO + e);
-//            throw new DaoException(DaoConstants.ERROR_DAO + e);
-//        }
-//    }
 }

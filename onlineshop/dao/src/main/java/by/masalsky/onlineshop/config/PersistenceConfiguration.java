@@ -39,7 +39,6 @@ public class PersistenceConfiguration {
         dataSource.setUrl(environment.getProperty("db.url"));
         dataSource.setUsername(environment.getProperty("db.username"));
         dataSource.setPassword(environment.getProperty("db.pass"));
-
         return dataSource;
     }
 

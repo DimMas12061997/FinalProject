@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = ("shop"))
 public class OnlineShop extends Bean {
-    private String name = "sportix";
+    private String name;
     private double profit;
     private String description;
 

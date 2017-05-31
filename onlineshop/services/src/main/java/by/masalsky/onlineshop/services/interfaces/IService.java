@@ -1,11 +1,11 @@
 package by.masalsky.onlineshop.services.interfaces;
 
 
-import by.masalsky.onlineshop.entities.Bean;
+import by.masalsky.onlineshop.dto.BeanDto;
 
 import java.util.List;
 
-public interface IService<T extends Bean> {
+public interface IService<T extends BeanDto> {
     int save(T entity);
 
     List<T> getAll();

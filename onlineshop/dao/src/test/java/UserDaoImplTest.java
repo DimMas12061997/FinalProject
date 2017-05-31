@@ -1,6 +1,7 @@
 import by.masalsky.onlineshop.dao.impl.UserDao;
 import by.masalsky.onlineshop.entities.User;
 import by.masalsky.onlineshop.enums.RoleType;
+import by.masalsky.onlineshop.util.BeanBuilder;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,10 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import by.masalsky.onlineshop.util.BeanBuilder;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -28,26 +25,25 @@ public class UserDaoImplTest {
 
     @Before
     public void buildEntity() throws Exception {
-        expectedUser = BeanBuilder.buildUser("test", "test", "test", "test", BeanBuilder.buildRole(RoleType.ADMINISTRATOR), BeanBuilder.buildShop("xx","qwe", 2000));
+        expectedUser = BeanBuilder.buildUser("test", "test", "test", "test", BeanBuilder.buildRole(RoleType.ADMINISTRATOR), BeanBuilder.buildShop("test","test", 2000));
         save();
     }
 
-    @Test
-    public void testGetByLogin() throws Exception {
-        expectedUser.setId(userId);
-        actualUser = userDao.getByLogin(expectedUser.getLogin());
-        Assert.assertEquals("getByLogin() method failed: ", expectedUser, actualUser);
-        delete();
-    }
-
-    @Test
-    public void testIsAuthorized() throws Exception {
-        expectedUser.setId(userId);
-        Boolean flag = userDao.isAuthorized(expectedUser.getLogin(), expectedUser.getPassword());
-        System.out.println(flag);
-        Assert.assertTrue("IsAuthorized() method failed: ", flag);
-        delete();
-    }
+//    @Test
+//    public void testGetByLogin() throws Exception {
+//        expectedUser.setId(userId);
+//        actualUser = userDao.getByLogin(expectedUser.getLogin());
+//        Assert.assertEquals("getByLogin() method failed: ", expectedUser, actualUser);
+//        delete();
+//    }
+//
+//    @Test
+//    public void testIsAuthorized() throws Exception {
+//        expectedUser.setId(userId);
+//        Boolean flag = userDao.isAuthorized(expectedUser.getLogin(), expectedUser.getPassword());
+//        Assert.assertTrue("IsAuthorized() method failed: ", flag);
+//        delete();
+//    }
 
     @Test
     public void testSave() throws Exception {
@@ -58,15 +54,15 @@ public class UserDaoImplTest {
     }
 
 
-    @Test
-    public void testGetAll() throws Exception {
-        expectedUser.setId(userId);
-        List<User> listUserActual = userDao.getAll();
-        List<User> listUserExpected = new ArrayList<User>();
-        listUserExpected.add(expectedUser);
-        Assert.assertFalse("getAll() method failed", listUserActual.contains(listUserExpected));
-        delete();
-    }
+//    @Test
+//    public void testGetAll() throws Exception {
+//        expectedUser.setId(userId);
+//        List<User> listUserActual = userDao.getAll();
+//        List<User> listUserExpected = new ArrayList<>();
+//        listUserExpected.add(expectedUser);
+//        Assert.assertFalse("getAll() method failed", listUserActual.contains(listUserExpected));
+//        delete();
+//    }
 
     @Test
     public void testGetById() throws Exception {

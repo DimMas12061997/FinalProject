@@ -1,6 +1,8 @@
-by\masalsky\onlineshop\security\SecurityConfig.class
+by\masalsky\onlineshop\controllers\CategoryController.class
 by\masalsky\onlineshop\controllers\MainController.class
 by\masalsky\onlineshop\security\CustomUserDetailsService.class
 by\masalsky\onlineshop\controllers\UserController.class
 by\masalsky\onlineshop\Main.class
 by\masalsky\onlineshop\security\CustomUserDetails.class
+by\masalsky\onlineshop\security\SecurityConfig.class
+by\masalsky\onlineshop\controllers\GoodsController.class

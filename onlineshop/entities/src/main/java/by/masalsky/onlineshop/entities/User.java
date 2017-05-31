@@ -11,11 +11,9 @@ public class User extends Bean {
     private String password;
     private Role role;
     private OnlineShop shop;
-//    private String createdDate;
 
     public User() {
     }
-
 
     public User(User user) {
         super(user.getId());
@@ -26,7 +24,6 @@ public class User extends Bean {
         this.role = user.getRole();
         this.shop = user.getShop();
     }
-
 
     @Override
     public String toString() {
@@ -40,7 +37,7 @@ public class User extends Bean {
                 '}';
     }
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
     public Role getRole() {
         return role;
@@ -50,7 +47,7 @@ public class User extends Bean {
         this.role = role;
     }
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "shop_id")
     public OnlineShop getShop() {
         return shop;
@@ -95,16 +92,6 @@ public class User extends Bean {
     public void setPassword(String password) {
         this.password = password;
     }
-
-//        @Column(name = ("created_date"))
-//    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", name = ("created_date"))
-//    public String getCreatedDate() {
-//        return createdDate;
-//    }
-//
-//    public void setCreatedDate(String createdDate) {
-//        this.createdDate = createdDate;
-//    }
 
 
     @Override

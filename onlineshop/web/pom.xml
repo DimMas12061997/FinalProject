@@ -11,7 +11,7 @@
 
     <artifactId>web</artifactId>
     <name>web</name>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

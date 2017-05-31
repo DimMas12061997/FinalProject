@@ -7,6 +7,10 @@ public abstract class BeanDto {
     public BeanDto() {
     }
 
+    public BeanDto(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -15,4 +19,18 @@ public abstract class BeanDto {
         this.id = id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BeanDto beanDto = (BeanDto) o;
+
+        return id != null ? id.equals(beanDto.id) : beanDto.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

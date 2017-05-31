@@ -22,12 +22,12 @@ public abstract class BaseDao<T extends Bean> implements IBaseDao<T> {
     @Autowired
     private SessionFactory sessionFactory;
 
-    protected BaseDao(Class persistentClass, SessionFactory sessionFactory){
+    protected BaseDao(Class persistentClass, SessionFactory sessionFactory) {
         this.persistentClass = persistentClass;
         this.sessionFactory = sessionFactory;
     }
 
-    protected Session getCurrentSession(){
+    protected Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }
 
@@ -48,14 +48,13 @@ public abstract class BaseDao<T extends Bean> implements IBaseDao<T> {
 
 
     @Override
-    public int save(T entity) throws DaoException{
+    public int save(T entity) throws DaoException {
         int id = 0;
         try {
             Session session = getCurrentSession();
             session.save(entity);
             id = (int) session.getIdentifier(entity);
-        }
-        catch(HibernateException e) {
+        } catch (HibernateException e) {
             logger.error(DaoConstants.ERROR_DAO + e);
             throw new DaoException(DaoConstants.ERROR_DAO + e);
         }

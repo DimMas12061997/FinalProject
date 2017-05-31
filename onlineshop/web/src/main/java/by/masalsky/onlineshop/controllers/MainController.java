@@ -6,14 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MainController {
 
-    @RequestMapping(value = "/main")
+    @RequestMapping(value = "/")
     public String home(){
-        return "Hello dima!";
-    }
-
-    @RequestMapping(value = "/qwe")
-    public String qwe(){
-        return "Hello qwe!";
+        return "WELCOME!!!";
     }
 
 }

@@ -11,7 +11,7 @@
                            http://www.springframework.org/schema/tx
                            http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-    <context:component-scan base-package="by.masalsky.onlineshop.services"/>
+    <context:component-scan base-package="by.masalsky.onlineshop"/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
           p:url="jdbc:mysql://localhost:3306/shop_hibernate"
@@ -51,13 +51,13 @@
     </bean>
 
     <!-- DAO -->
-    <bean id="userDao" class="by.masalsky.onlineshop.dao.impl.UserDao">
-        <constructor-arg ref="sessionFactory"/>
-    </bean>
+    <!--<bean id="userDao" class="by.masalsky.onlineshop.dao.impl.UserDao">-->
+        <!--<constructor-arg ref="sessionFactory"/>-->
+    <!--</bean>-->
 
     <!-- SERVICES -->
-    <bean id="userService" class="by.masalsky.onlineshop.services.impl.UserService">
-        <constructor-arg ref="userDao"/>
-    </bean>
+    <!--<bean id="userService" class="by.masalsky.onlineshop.services.impl.UserService">-->
+        <!--<constructor-arg ref="userDao"/>-->
+    <!--</bean>-->
 
 </beans>

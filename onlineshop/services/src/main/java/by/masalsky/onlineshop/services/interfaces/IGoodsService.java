@@ -1,9 +1,9 @@
 package by.masalsky.onlineshop.services.interfaces;
 
 
-import by.masalsky.onlineshop.entities.Goods;
+import by.masalsky.onlineshop.dto.GoodsDto;
 
-public interface IGoodsService extends IService<Goods> {
+public interface IGoodsService extends IService<GoodsDto> {
 
 }
 

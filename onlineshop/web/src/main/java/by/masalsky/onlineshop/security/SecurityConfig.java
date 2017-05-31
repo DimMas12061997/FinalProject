@@ -23,22 +23,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/register").permitAll()
+                .antMatchers("/users/*").permitAll()
+                .antMatchers("/logout").authenticated()
                 .antMatchers("/").hasAnyRole("ADMINISTRATOR", "CLIENT")
-                .antMatchers("/admins/*").hasRole("ADMINISTRATOR")
-                .antMatchers("/admins/**").hasRole("ADMINISTRATOR")
-                .antMatchers("/users/*").hasRole("CLIENT")
-                .antMatchers("/users/**").hasRole("CLIENT")
-
+                .antMatchers("/categories/*").hasRole("ADMINISTRATOR")
+                .antMatchers("/categories/**").hasRole("ADMINISTRATOR")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .usernameParameter("login")
+                .permitAll()
                 .and()
                 .logout()
-                .and()
-                .csrf()
-                .disable();
+                .permitAll();
     }
 
 }

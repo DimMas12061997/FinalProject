@@ -13,7 +13,7 @@ public class Goods extends Bean {
     private String description;
     private String createdDate;
     private OnlineShop shopId;
-    private Category categoryId;
+    private Category category;
     private Set<Order> orderList;
 
     @Override
@@ -26,7 +26,7 @@ public class Goods extends Bean {
                 ", description='" + description + '\'' +
                 ", createdDate='" + createdDate + '\'' +
                 ", shopId=" + shopId +
-                ", categoryId=" + categoryId +
+                ", categoryId=" + category +
                 '}';
     }
 
@@ -39,8 +39,8 @@ public class Goods extends Bean {
         this.createdDate = createdDate;
     }
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false, name = "shop_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "shop_id")
     public OnlineShop getShopId() {
         return shopId;
     }
@@ -49,14 +49,14 @@ public class Goods extends Bean {
         this.shopId = shopId;
     }
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false, name = "category_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id")
     public Category getCategoryId() {
-        return categoryId;
+        return category;
     }
 
     public void setCategoryId(Category categoryId) {
-        this.categoryId = categoryId;
+        this.category = categoryId;
     }
 
     @Column(nullable = false, name = ("producer"))
