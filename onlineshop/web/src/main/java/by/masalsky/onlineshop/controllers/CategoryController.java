@@ -19,7 +19,7 @@ public class CategoryController {
     @Autowired
     private ICategoryService categoryService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<CategoryDto>> getAllCategories() {
         List<CategoryDto> list = categoryService.getAll();
         return new ResponseEntity<>(list, HttpStatus.OK);
@@ -32,29 +32,29 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Void> deleteCategory(@PathVariable("id") Integer id) {
+    public ResponseEntity deleteCategory(@PathVariable("id") Integer id) {
         CategoryDto category = categoryService.getById(id);
         if (category != null) {
-        categoryService.delete(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+            categoryService.delete(id);
+            return new ResponseEntity<>(HttpStatus.OK);
         } else
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
+            return new ResponseEntity<>("There is no such category", HttpStatus.BAD_REQUEST);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity createCategory(@RequestBody CategoryDto categoryDto) {
         CategoryDto category = categoryService.getByName(categoryDto.getCategoryName());
         if (category == null) {
             categoryService.save(categoryDto);
             return new ResponseEntity<>(HttpStatus.OK);
         } else
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
+            return new ResponseEntity<>("This category already exists", HttpStatus.BAD_REQUEST);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
-    public ResponseEntity updateCategory(@RequestBody CategoryDto categoryDto) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity updateCategory(@PathVariable("id") Integer id, @RequestBody CategoryDto categoryDto) {
+        categoryDto.setId(id);
         categoryService.update(categoryDto);
-        categoryDto = categoryService.getById(categoryDto.getId());
-        return new ResponseEntity<>(categoryDto, HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

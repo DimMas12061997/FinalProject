@@ -1,6 +1,7 @@
 package by.masalsky.onlineshop.entities;
 
 import by.masalsky.onlineshop.enums.PaymentType;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -9,7 +10,7 @@ import java.util.Set;
 @Table(name = ("orders"))
 public class Order extends Bean {
     private double orderCost;
-    private String createdDate;
+    private int number;
     private PaymentType status;
     private User user;
     private Set<Goods> goodsList;
@@ -17,13 +18,15 @@ public class Order extends Bean {
     public Order() {
     }
 
+
     @Override
     public String toString() {
         return "Order{" +
-                ", orderCost=" + orderCost +
-                ", createdDate='" + createdDate + '\'' +
+                "orderCost=" + orderCost +
+                ", number=" + number +
                 ", status=" + status +
                 ", user=" + user +
+                ", goodsList=" + goodsList +
                 '}';
     }
 
@@ -36,15 +39,6 @@ public class Order extends Bean {
         this.orderCost = orderCost;
     }
 
-    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", name = ("created_date"))
-    public String getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(String createdDate) {
-        this.createdDate = createdDate;
-    }
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "enum('OPEN', 'CLOSED')")
     public PaymentType getStatus() {
@@ -55,7 +49,7 @@ public class Order extends Bean {
         this.status = status;
     }
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "user_id")
     public User getUser() {
         return user;
@@ -65,12 +59,21 @@ public class Order extends Bean {
         this.user = user;
     }
 
-    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "order_goods",
             joinColumns = @JoinColumn(name = "id_order"),
             inverseJoinColumns = @JoinColumn(name = "id_goods"))
     public Set<Goods> getGoodsList() {
         return goodsList;
+    }
+
+    @Column(nullable = false)
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public void setGoodsList(Set<Goods> goodsList) {

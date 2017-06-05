@@ -11,7 +11,6 @@ public class Goods extends Bean {
     private double unitPrice;
     private String producer;
     private String description;
-    private String createdDate;
     private OnlineShop shopId;
     private Category category;
     private Set<Order> orderList;
@@ -24,19 +23,9 @@ public class Goods extends Bean {
                 ", unitPrice=" + unitPrice +
                 ", producer='" + producer + '\'' +
                 ", description='" + description + '\'' +
-                ", createdDate='" + createdDate + '\'' +
                 ", shopId=" + shopId +
                 ", categoryId=" + category +
                 '}';
-    }
-
-    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", name = ("created_date"))
-    public String getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(String createdDate) {
-        this.createdDate = createdDate;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

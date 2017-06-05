@@ -47,7 +47,7 @@ public class UserProfile extends Bean {
         this.creditCard = creditCard;
     }
 
-    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false, name = "user_id")
     public User getUser() {
         return user;

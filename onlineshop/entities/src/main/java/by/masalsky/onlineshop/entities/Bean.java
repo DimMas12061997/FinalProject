@@ -7,39 +7,38 @@ import javax.persistence.*;
 @Access(AccessType.PROPERTY)
 public abstract class Bean {
 
-    protected Integer id;
+    protected int id;
 
     public Bean() {
     }
 
-    public Bean(Integer id) {
+    public Bean(int id) {
         this.id = id;
     }
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Bean)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        Bean entity = (Bean) o;
+        Bean bean = (Bean) o;
 
-        return id == entity.id;
+        return id == bean.id;
     }
 
     @Override
     public int hashCode() {
         return id;
     }
-
 }

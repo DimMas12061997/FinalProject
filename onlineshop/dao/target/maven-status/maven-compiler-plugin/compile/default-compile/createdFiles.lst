@@ -14,7 +14,6 @@ by\masalsky\onlineshop\dao\impl\UserDao.class
 by\masalsky\onlineshop\dao\impl\ShopDao.class
 by\masalsky\onlineshop\dao\impl\UserProfileDao.class
 by\masalsky\onlineshop\dao\interfaces\IShopDao.class
-by\masalsky\onlineshop\utils\HibernateUtil.class
 by\masalsky\onlineshop\dao\impl\OrderDao.class
 by\masalsky\onlineshop\dao\interfaces\IRoleDao.class
 by\masalsky\onlineshop\dao\impl\RoleDao.class

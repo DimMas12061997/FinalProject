@@ -6,9 +6,8 @@ import javax.persistence.*;
 @Table(name = ("black_list"))
 public class BlackList extends Bean {
     private User user;
-    private String createdDate;
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "user_id")
     public User getUser() {
         return user;
@@ -18,13 +17,10 @@ public class BlackList extends Bean {
         this.user = user;
     }
 
-    //    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", name = ("created_date"))
-    @Column(name = ("created_date"))
-    public String getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(String createdDate) {
-        this.createdDate = createdDate;
+    @Override
+    public String toString() {
+        return "BlackList{" +
+                "user=" + user +
+                '}';
     }
 }

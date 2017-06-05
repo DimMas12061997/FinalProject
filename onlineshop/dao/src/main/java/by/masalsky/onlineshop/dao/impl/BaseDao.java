@@ -78,7 +78,8 @@ public abstract class BaseDao<T extends Bean> implements IBaseDao<T> {
     public void update(T entity) {
         try {
             Session session = getCurrentSession();
-            session.update(entity);
+//            session.update(entity);
+            session.merge(entity);
         } catch (HibernateException e) {
             logger.error(DaoConstants.ERROR_DAO + e);
         }

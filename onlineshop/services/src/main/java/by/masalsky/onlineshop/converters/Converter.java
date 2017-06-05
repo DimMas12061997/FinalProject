@@ -1,13 +1,9 @@
 package by.masalsky.onlineshop.converters;
 
 
-import by.masalsky.onlineshop.dto.CategoryDto;
-import by.masalsky.onlineshop.dto.GoodsDto;
-import by.masalsky.onlineshop.dto.UserDto;
-import by.masalsky.onlineshop.entities.Category;
-import by.masalsky.onlineshop.entities.Goods;
-import by.masalsky.onlineshop.entities.OnlineShop;
-import by.masalsky.onlineshop.entities.User;
+import by.masalsky.onlineshop.dto.*;
+import by.masalsky.onlineshop.entities.*;
+import by.masalsky.onlineshop.enums.PaymentType;
 
 public class Converter {
 
@@ -29,6 +25,27 @@ public class Converter {
         userDto.setLogin(user.getLogin());
         userDto.setPassword(user.getPassword());
         userDto.setRole_name(String.valueOf(user.getRole().getRole_name()));
+        return userDto;
+    }
+
+    public static UserProfile userProfileDtoToUserProfile(UserProfileDto userDto) {
+        UserProfile user = new UserProfile();
+        user.setId(userDto.getId());
+        user.setBudget(userDto.getBudget());
+        user.setEmail(userDto.getEmail());
+        user.setAddress(userDto.getAddress());
+        user.setCreditCard(userDto.getCreditCard());
+        return user;
+    }
+
+    public static UserProfileDto userProfileToUserProfileDto(UserProfile user) {
+        UserProfileDto userDto = new UserProfileDto();
+        userDto.setId(user.getId());
+        userDto.setBudget(user.getBudget());
+        userDto.setEmail(user.getEmail());
+        userDto.setAddress(user.getAddress());
+        userDto.setCreditCard(user.getCreditCard());
+        userDto.setUser(user.getUser().getId());
         return userDto;
     }
 
@@ -73,5 +90,51 @@ public class Converter {
         shop.setId(1);
         goods.setShopId(shop);
         return goods;
+    }
+
+    public static Order orderDtoToOrder(OrderDto orderDto) {
+        Order order = new Order();
+        order.setId(orderDto.getId());
+        order.setStatus(PaymentType.OPEN);
+        order.setNumber(orderDto.getNumber());
+        User user = new User();
+        user.setId(orderDto.getUserId());
+        order.setUser(user);
+        return order;
+    }
+
+    public static OrderDto orderToOrderDto(Order order) {
+        OrderDto orderDto = new OrderDto();
+        orderDto.setId(order.getId());
+        orderDto.setNumber(order.getNumber());
+        orderDto.setOrderCost(order.getOrderCost());
+        orderDto.setStatus(order.getStatus());
+        orderDto.setUserId(order.getUser().getId());
+        return orderDto;
+    }
+
+    public static BlackList blackListDtoToBlackList(BlackListDto blackListDto){
+        BlackList blackList = new BlackList();
+        blackList.setId(blackListDto.getId());
+        User user = new User();
+        user.setId(blackListDto.getUser());
+        blackList.setUser(user);
+        return blackList;
+    }
+
+    public static BlackListDto blackListToBlackListDto(BlackList blackList){
+        BlackListDto blackListDto = new BlackListDto();
+        blackListDto.setId(blackList.getId());
+        blackListDto.setUser(blackList.getUser().getId());
+        return blackListDto;
+    }
+
+    public static OnlineShopDto shopToShopDto(OnlineShop shop){
+        OnlineShopDto shopDto = new OnlineShopDto();
+        shopDto.setId(shop.getId());
+        shopDto.setName(shop.getName());
+        shopDto.setDescription(shop.getDescription());
+        shopDto.setProfit(shop.getProfit());
+        return shopDto;
     }
 }

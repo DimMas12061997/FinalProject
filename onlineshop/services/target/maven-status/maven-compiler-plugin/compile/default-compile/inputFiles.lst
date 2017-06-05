@@ -5,17 +5,13 @@ C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlinesho
 C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\services\impl\OrderService.java
 C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\services\impl\GoodsService.java
 C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\services\interfaces\IService.java
-C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\services\impl\AbstractService.java
 C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\services\impl\BlackListService.java
 C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\constants\ServiceConstants.java
 C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\services\impl\ShopService.java
-C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\services\interfaces\IRoleService.java
-C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\config\ServiceConfiguration.java
 C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\services\interfaces\IBlackListService.java
 C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\services\interfaces\IGoodsService.java
 C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\converters\Converter.java
 C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\services\interfaces\IShopService.java
-C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\services\impl\RoleService.java
 C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\exceptions\ServiceException.java
 C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\services\interfaces\IUserService.java
 C:\Users\ִלטענטי\Desktop\onlineshop\services\src\main\java\by\masalsky\onlineshop\services\interfaces\IUserProfileService.java

@@ -1,6 +1,4 @@
-//import by.masalsky.onlineshop.dto.RoleDto;
 //import by.masalsky.onlineshop.dto.UserDto;
-//import by.masalsky.onlineshop.enums.RoleType;
 //import by.masalsky.onlineshop.services.interfaces.IUserService;
 //import org.junit.After;
 //import org.junit.Assert;
@@ -10,9 +8,6 @@
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.test.context.ContextConfiguration;
 //import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-//
-//import java.util.ArrayList;
-//import java.util.List;
 //
 //@ContextConfiguration("/test-services-context.xml")
 //@RunWith(SpringJUnit4ClassRunner.class)
@@ -31,26 +26,26 @@
 //        expectedUser.setLastName("test");
 //        expectedUser.setLogin("test");
 //        expectedUser.setPassword("test");
-//        expectedUser.setRole_name(RoleType.ADMINISTRATOR);
+////        expectedUser.setRole_name(RoleType.ADMINISTRATOR);
 ////        expectedUser = BeanBuilder.buildUser("test", "test", "test", "test", new RoleDto().setRole_name(RoleType.ADMINISTRATOR)), BeanBuilder.buildShop("test", "test", 10));
 //        save();
 //    }
 //
-//    @Test
-//    public void testGetByLogin() throws Exception {
-//        expectedUser.setId(userId);
-//        actualUser = userService.getByLogin(expectedUser.getLogin());
-//        Assert.assertEquals("getByLogin() method failed: ", expectedUser, actualUser);
-//        delete();
-//    }
-//
-//    @Test
-//    public void testIsAuthorized() throws Exception {
-//        expectedUser.setId(userId);
-//        Boolean flag = userService.isAuthorized(expectedUser.getLogin(), expectedUser.getPassword());
-//        Assert.assertTrue("IsAuthorized() method failed: ", flag);
-//        delete();
-//    }
+////    @Test
+////    public void testGetByLogin() throws Exception {
+////        expectedUser.setId(userId);
+////        actualUser = userService.getByLogin(expectedUser.getLogin());
+////        Assert.assertEquals("getByLogin() method failed: ", expectedUser, actualUser);
+////        delete();
+////    }
+////
+////    @Test
+////    public void testIsAuthorized() throws Exception {
+////        expectedUser.setId(userId);
+////        Boolean flag = userService.isAuthorized(expectedUser.getLogin(), expectedUser.getPassword());
+////        Assert.assertTrue("IsAuthorized() method failed: ", flag);
+////        delete();
+////    }
 //
 //    @Test
 //    public void testSave() throws Exception {
@@ -68,15 +63,15 @@
 //        Assert.assertNotEquals("delete() method failed: ", actualUser);
 //    }
 //
-//    @Test
-//    public void testGetAll() throws Exception {
-//        expectedUser.setId(userId);
-//        List<UserDto> listUserActual = userService.getAll();
-//        List<UserDto> listUserExpected = new ArrayList<UserDto>();
-//        listUserExpected.add(expectedUser);
-//        Assert.assertFalse("getAll() method failed", listUserActual.contains(listUserExpected));
-//        delete();
-//    }
+////    @Test
+////    public void testGetAll() throws Exception {
+////        expectedUser.setId(userId);
+////        List<UserDto> listUserActual = userService.getAll();
+////        List<UserDto> listUserExpected = new ArrayList<UserDto>();
+////        listUserExpected.add(expectedUser);
+////        Assert.assertFalse("getAll() method failed", listUserActual.contains(listUserExpected));
+////        delete();
+////    }
 //
 //    @Test
 //    public void testGetById() throws Exception {

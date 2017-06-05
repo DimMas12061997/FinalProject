@@ -26,7 +26,6 @@ public class UserService implements IUserService {
     private IUserDao userDao;
     private final static Logger logger = LoggerFactory.getLogger(UserService.class);
 
-
     @Override
     public int save(UserDto userDto) {
         User user = Converter.userDtoToUser(userDto);
@@ -46,9 +45,6 @@ public class UserService implements IUserService {
         List<User> users = null;
         UserDto userDto = null;
         List<UserDto> usersDto = new ArrayList<UserDto>();
-        if (logger.isDebugEnabled()) {
-            logger.debug(ServiceConstants.TRANSACTION_DEBUG);
-        }
         try {
             users = userDao.getAll();
             for (User user : users) {
@@ -91,7 +87,9 @@ public class UserService implements IUserService {
     @Override
     public void update(UserDto userDto) {
         User user = Converter.userDtoToUser(userDto);
-        user = setUserRoleAndShop(user);
+        User userTmp = userDao.getById(userDto.getId());
+        user.setShop(userTmp.getShop());
+        user.setRole(userTmp.getRole());
         try {
             userDao.update(user);
             logger.info(ServiceConstants.TRANSACTION_SUCCEEDED);
@@ -102,12 +100,7 @@ public class UserService implements IUserService {
 
     @Override
     public void delete(int id) {
-        try {
-            userDao.delete(id);
-            logger.info(ServiceConstants.TRANSACTION_SUCCEEDED);
-        } catch (ServiceException e) {
-            logger.error(ServiceConstants.TRANSACTION_FAILED, e);
-        }
+        throw new UnsupportedOperationException();
     }
 
     @Override

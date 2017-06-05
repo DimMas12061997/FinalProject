@@ -10,30 +10,38 @@ import java.util.Collection;
 import java.util.List;
 
 
-public class CustomUserDetails extends UserDto implements UserDetails {
+public class CustomUserDetails implements UserDetails {
     private final String ROLE_PREFIX = "ROLE_";
+    private UserDto user;
 
     public CustomUserDetails(UserDto user) {
-        super(user);
+        this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> list = new ArrayList<>();
-        list.add(new SimpleGrantedAuthority(ROLE_PREFIX + super.getRole_name()));
+        list.add(new SimpleGrantedAuthority(ROLE_PREFIX + user.getRole_name()));
         return list;
     }
 
     @Override
     public String getPassword() {
-        return super.getPassword();
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return super.getLogin();
+        return user.getLogin();
     }
 
+    public int getId() {
+        return user.getId();
+    }
+
+    public String getRole() {
+        return user.getRole_name();
+    }
     @Override
     public boolean isAccountNonExpired() {
         return true;

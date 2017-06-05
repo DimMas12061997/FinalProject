@@ -19,20 +19,16 @@ public class GoodsController {
     @Autowired
     private IGoodsService goodsService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping( method = RequestMethod.GET)
     public ResponseEntity<List<GoodsDto>> getAllGoods() {
         List<GoodsDto> list = goodsService.getAll();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity createGoods(@RequestBody GoodsDto goodsDto) {
-//        GoodsDto goods = goodsService.getById(goodsDto.getId());
-//        if (goods == null) {
         goodsService.save(goodsDto);
         return new ResponseEntity<Void>(HttpStatus.OK);
-//        } else
-//            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -42,13 +38,20 @@ public class GoodsController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Void> deleteGoods(@PathVariable("id") Integer id) {
-        GoodsDto category = goodsService.getById(id);
-        if (category != null) {
+    public ResponseEntity deleteGoods(@PathVariable("id") Integer id) {
+        GoodsDto goods = goodsService.getById(id);
+        if (goods != null) {
             goodsService.delete(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } else
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
+            return new ResponseEntity<>("This product does not exist", HttpStatus.BAD_REQUEST);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity updateGoods(@PathVariable("id") Integer id, @RequestBody GoodsDto goodsDto) {
+        goodsDto.setId(id);
+        goodsService.update(goodsDto);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

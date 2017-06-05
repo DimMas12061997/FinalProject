@@ -23,7 +23,6 @@ public class CategoryService implements ICategoryService {
     private ICategoryDao categoryDao;
     private final static Logger logger = LoggerFactory.getLogger(CategoryService.class);
 
-
     @Override
     public int save(CategoryDto categoryDto) {
         Category category = Converter.categoryDtoToCategory(categoryDto);
@@ -42,9 +41,6 @@ public class CategoryService implements ICategoryService {
         List<Category> categoryList = null;
         CategoryDto categoryDto = null;
         List<CategoryDto> usersDto = new ArrayList<CategoryDto>();
-        if (logger.isDebugEnabled()) {
-            logger.debug(ServiceConstants.TRANSACTION_DEBUG);
-        }
         try {
             categoryList = categoryDao.getAll();
             for (Category category : categoryList) {

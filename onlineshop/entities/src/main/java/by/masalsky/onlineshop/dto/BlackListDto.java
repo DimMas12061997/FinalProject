@@ -1,24 +1,20 @@
 package by.masalsky.onlineshop.dto;
 
 public class BlackListDto extends BeanDto {
-    private UserDto user;
-    private String createdDate;
+    private int userId;
 
-
-    public UserDto getUser() {
-        return user;
+    public int getUser() {
+        return userId;
     }
 
-    public void setUser(UserDto user) {
-        this.user = user;
+    public void setUser(int user) {
+        this.userId = user;
     }
 
-
-    public String getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(String createdDate) {
-        this.createdDate = createdDate;
+    @Override
+    public String toString() {
+        return "BlackListDto{" +
+                "userId=" + userId +
+                '}';
     }
 }

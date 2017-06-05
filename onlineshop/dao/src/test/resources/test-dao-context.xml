@@ -43,7 +43,11 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <bean id="userDao" class="by.masalsky.onlineshop.dao.impl.UserDao">
+    <!--<bean id="userDao" class="by.masalsky.onlineshop.dao.impl.UserDao">-->
+        <!--<constructor-arg ref="sessionFactory"/>-->
+    <!--</bean>-->
+
+    <bean id="categoryDao" class="by.masalsky.onlineshop.dao.impl.CategoryDao">
         <constructor-arg ref="sessionFactory"/>
     </bean>
 </beans>

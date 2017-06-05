@@ -5,7 +5,7 @@ public class UserProfileDto extends BeanDto {
     private String address;
     private double budget;
     private String creditCard;
-    private UserDto user;
+    private int userId;
 
     public String getEmail() {
         return email;
@@ -39,12 +39,22 @@ public class UserProfileDto extends BeanDto {
         this.creditCard = creditCard;
     }
 
-    public UserDto getUser() {
-        return user;
+    public int getUser() {
+        return userId;
     }
 
-    public void setUser(UserDto user) {
-        this.user = user;
+    public void setUser(int user) {
+        this.userId = user;
     }
 
+    @Override
+    public String toString() {
+        return "UserProfileDto{" +
+                "email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", budget=" + budget +
+                ", creditCard='" + creditCard + '\'' +
+                ", userId=" + userId +
+                '}';
+    }
 }

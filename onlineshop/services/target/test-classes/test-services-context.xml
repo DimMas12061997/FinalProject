@@ -18,8 +18,6 @@
           p:driverClassName="com.mysql.jdbc.Driver"
           p:username="root"
           p:password="root"
-          p:initialSize="2"
-          p:maxTotal="3"
     />
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
@@ -45,19 +43,4 @@
     </bean>
 
     <tx:annotation-driven transaction-manager="testServiceTransactionManager"/>
-
-    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
-        <property name="transactionManager" ref="testServiceTransactionManager"/>
-    </bean>
-
-    <!-- DAO -->
-    <!--<bean id="userDao" class="by.masalsky.onlineshop.dao.impl.UserDao">-->
-        <!--<constructor-arg ref="sessionFactory"/>-->
-    <!--</bean>-->
-
-    <!-- SERVICES -->
-    <!--<bean id="userService" class="by.masalsky.onlineshop.services.impl.UserService">-->
-        <!--<constructor-arg ref="userDao"/>-->
-    <!--</bean>-->
-
 </beans>

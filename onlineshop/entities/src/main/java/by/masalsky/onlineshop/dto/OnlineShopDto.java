@@ -2,7 +2,7 @@ package by.masalsky.onlineshop.dto;
 
 
 public class OnlineShopDto extends BeanDto {
-    private String name = "sportix";
+    private String name;
     private double profit;
     private String description;
 

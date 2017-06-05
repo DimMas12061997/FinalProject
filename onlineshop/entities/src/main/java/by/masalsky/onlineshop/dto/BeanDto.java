@@ -2,20 +2,20 @@ package by.masalsky.onlineshop.dto;
 
 public abstract class BeanDto {
 
-    protected Integer id;
+    protected int id;
 
     public BeanDto() {
     }
 
-    public BeanDto(Integer id) {
+    public BeanDto(int id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -26,11 +26,11 @@ public abstract class BeanDto {
 
         BeanDto beanDto = (BeanDto) o;
 
-        return id != null ? id.equals(beanDto.id) : beanDto.id == null;
+        return id == beanDto.id;
     }
 
     @Override
     public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+        return id;
     }
 }

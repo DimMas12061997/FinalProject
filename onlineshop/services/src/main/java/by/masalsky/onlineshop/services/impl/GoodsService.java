@@ -26,10 +26,20 @@ public class GoodsService implements IGoodsService {
 
     @Override
     public int save(GoodsDto goodsDto) {
-        Goods goods = Converter.goodsDtoToGoods(goodsDto);
-        int id = 0;
+        int id = 0, flag = 0;
         try {
-            id = goodsDao.save(goods);
+            Goods goods = Converter.goodsDtoToGoods(goodsDto);
+            List<Goods> goodsList = goodsDao.getAll();
+            for (Goods goodsTmp : goodsList)
+                if (goodsTmp.getName().equals(goods.getName()) && goodsTmp.getUnitPrice() == goods.getUnitPrice() && goodsTmp.getProducer().equals(goods.getProducer()) && goodsTmp.getDescription().equals(goods.getDescription())) {
+                    flag++;
+                    goods.setNumber(goods.getNumber() + goodsTmp.getNumber());
+                }
+            if (flag == 0)
+                id = goodsDao.save(goods);
+            else {
+                goodsDao.update(goods);
+            }
             logger.info(ServiceConstants.TRANSACTION_SUCCEEDED);
         } catch (ServiceException e) {
             logger.error(ServiceConstants.TRANSACTION_FAILED, e);
@@ -41,21 +51,18 @@ public class GoodsService implements IGoodsService {
     public List<GoodsDto> getAll() {
         List<Goods> goodsList = null;
         GoodsDto goodsDto = null;
-        List<GoodsDto> usersDto = new ArrayList<GoodsDto>();
-        if (logger.isDebugEnabled()) {
-            logger.debug(ServiceConstants.TRANSACTION_DEBUG);
-        }
+        List<GoodsDto> goodsDtoList = new ArrayList<GoodsDto>();
         try {
             goodsList = goodsDao.getAll();
             for (Goods goods : goodsList) {
                 goodsDto = Converter.goodsToGoodsDto(goods);
-                usersDto.add(goodsDto);
+                goodsDtoList.add(goodsDto);
             }
             logger.info(ServiceConstants.TRANSACTION_SUCCEEDED);
         } catch (ServiceException e) {
             logger.error(ServiceConstants.TRANSACTION_FAILED, e);
         }
-        return usersDto;
+        return goodsDtoList;
     }
 
     @Override
@@ -74,8 +81,14 @@ public class GoodsService implements IGoodsService {
     }
 
     @Override
-    public void update(GoodsDto entity) {
-
+    public void update(GoodsDto goodsDto) {
+        Goods goods = Converter.goodsDtoToGoods(goodsDto);
+        try {
+            goodsDao.update(goods);
+            logger.info(ServiceConstants.TRANSACTION_SUCCEEDED);
+        } catch (org.hibernate.service.spi.ServiceException e) {
+            logger.error(ServiceConstants.TRANSACTION_FAILED, e);
+        }
     }
 
     @Override

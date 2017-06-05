@@ -4,7 +4,6 @@ C:\Users\ִלטענטי\Desktop\onlineshop\dao\src\main\java\by\masalsky\onlineshop\dao
 C:\Users\ִלטענטי\Desktop\onlineshop\dao\src\main\java\by\masalsky\onlineshop\config\PersistenceConfiguration.java
 C:\Users\ִלטענטי\Desktop\onlineshop\dao\src\main\java\by\masalsky\onlineshop\constants\DaoConstants.java
 C:\Users\ִלטענטי\Desktop\onlineshop\dao\src\main\java\by\masalsky\onlineshop\dao\interfaces\ICategoryDao.java
-C:\Users\ִלטענטי\Desktop\onlineshop\dao\src\main\java\by\masalsky\onlineshop\utils\HibernateUtil.java
 C:\Users\ִלטענטי\Desktop\onlineshop\dao\src\main\java\by\masalsky\onlineshop\dao\interfaces\IGoodsDao.java
 C:\Users\ִלטענטי\Desktop\onlineshop\dao\src\main\java\by\masalsky\onlineshop\dao\interfaces\IUserProfileDao.java
 C:\Users\ִלטענטי\Desktop\onlineshop\dao\src\main\java\by\masalsky\onlineshop\dao\impl\UserProfileDao.java
